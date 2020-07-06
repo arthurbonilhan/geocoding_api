@@ -7,6 +7,7 @@
             },
             zoom: 13,
             mapTypeId: "roadmap"
+            
         });
 
         var input = document.getElementById("buscar");
