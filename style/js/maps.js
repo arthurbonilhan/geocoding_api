@@ -16,7 +16,7 @@ function initAutocomplete() {
     map.addListener("bounds_changed", function () {
         searchBox.setBounds(map.getBounds());
     });
-    var markers = []; // envia evento trasendo detalhes do lugar 
+    var markers = []; // envia evento trazendo detalhes do lugar 
 
     searchBox.addListener("places_changed", function () {
         var places = searchBox.getPlaces();
@@ -51,8 +51,9 @@ function initAutocomplete() {
                     draggable: true,
                     title: place.name,
                     position: place.geometry.location,
-                    animation: google.maps.Animation.DROP,
+                    animation: google.maps.Animation.DROP
                 })
+                
             );
 
             if (place.geometry.viewport) {
