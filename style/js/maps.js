@@ -11,24 +11,24 @@ function initAutocomplete() {
 
     var input = document.getElementById("buscar");
     var searchBox = new google.maps.places.SearchBox(input);
-    map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+    map.controls[google.maps.ControlPosition.TOP_LEFT].push(input); // Envia dados do input.
 
     map.addListener("bounds_changed", function () {
         searchBox.setBounds(map.getBounds());
     });
-    var markers = [];
+    var markers = []; // envia evento trasendo detalhes do lugar 
 
     searchBox.addListener("places_changed", function () {
         var places = searchBox.getPlaces();
 
         if (places.length == 0) {
-            return;
+            return; // Limpa os marcadores
         }
 
         markers.forEach(function (marker) {
             marker.setMap(null);
         });
-        markers = [];
+        markers = []; // traz icone do local
 
         var bounds = new google.maps.LatLngBounds();
         places.forEach(function (place) {
@@ -43,7 +43,7 @@ function initAutocomplete() {
                 origin: new google.maps.Point(0, 0),
                 anchor: new google.maps.Point(17, 34),
                 scaledSize: new google.maps.Size(25, 25)
-            };
+            }; // creador de marcadores
 
             markers.push(
                 new google.maps.Marker({
